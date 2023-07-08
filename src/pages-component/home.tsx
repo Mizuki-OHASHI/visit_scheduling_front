@@ -4,28 +4,35 @@ import {
   IconNumber1,
   IconNumber2,
   IconNumber3,
+  IconNumber4,
 } from "@tabler/icons-react";
 import { CSVReader } from "@/components/CSVReader";
-import { Affix, Button, Group, MantineProvider } from "@mantine/core";
+import { Affix, Group } from "@mantine/core";
 
 import type { CSVType } from "@/components/CSVReader";
-import { PreviewTable } from "@/components/previewTable";
-import { ArrayToCSV } from "@/components/ArrayToCSV";
-import { RequestOptimize } from "@/components/RequestOptimize";
+import { PreviewTable } from "@/components/PreviewTable";
+import { Opt, RequestOptimize } from "@/components/RequestOptimize";
+import { ShowResult } from "@/pages-component/ShowResult";
+import { MyButton } from "@/components/MyButton";
 
 /* # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # */
 
 export const Home: FC = () => {
   const [chouseisan, setChouseisan] = useState<CSVType>({});
   const [memberInfo, setMemberInfo] = useState<CSVType>({});
+  const [opt, setOpt] = useState<Opt>({
+    status: "not optimized yet",
+  });
 
   const iconSize = 64;
 
   useEffect(() => console.log(chouseisan.data), [chouseisan]);
 
-  const handleSubmit = (): void => {
+  const handleSubmit = async () => {
     console.log("optimizing...");
-    RequestOptimize(chouseisan.data ?? [[]], memberInfo.data ?? [[]]);
+    if (chouseisan.data && memberInfo.data) {
+      RequestOptimize(chouseisan.data, memberInfo.data, setOpt);
+    }
   };
 
   return (
@@ -76,39 +83,22 @@ export const Home: FC = () => {
         <IconNumber3 size={iconSize} />
         <h3>訪問組み最適化を実行</h3>
       </div>
-      <Group position="center" my={16} className="bottom">
-        <MantineProvider
-          theme={{
-            colors: {
-              "my-maroon": [
-                "#800000",
-                "#800000",
-                "#800000",
-                "#800000",
-                "#800000",
-                "#800000",
-                "#800000", // bg
-                "#8F0000", // bg:hover
-                "#800000",
-                "#800000",
-              ],
-            },
-          }}
-        >
-          <Button
-            leftIcon={<IconMathMin size={32} />}
-            color="my-maroon"
-            size="xl"
-            onClick={(event) => {
-              event.preventDefault();
-              handleSubmit();
-            }}
-          >
-            訪問組み最適化を実行
-          </Button>
-          <div>↑開発中につき, まだ押しても何も起こらないです</div>
-        </MantineProvider>
-      </Group>
+
+      <MyButton
+        values="訪問組み最適化を実行"
+        onSubmit={() => {
+          handleSubmit();
+        }}
+        icon={<IconMathMin size={32} />}
+      />
+
+      {/* # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # */}
+
+      <div className="hor bb">
+        <IconNumber4 size={iconSize} />
+        <h3>結果の確認とダウンロード</h3>
+      </div>
+      {opt.status === "not optimized yet" ? <></> : <ShowResult opt={opt} />}
     </div>
   );
 };
