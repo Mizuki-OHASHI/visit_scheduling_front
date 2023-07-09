@@ -40,7 +40,7 @@ export const Home: FC = () => {
 
       <div className="hor bb top">
         <IconNumber1 size={iconSize} />
-        <h3>調整さんのアップロード</h3>
+        <h3>調整さんをアップロード</h3>
       </div>
       <br />
       <CSVReader setResult={(c: CSVType) => setChouseisan(c)} />
@@ -106,6 +106,7 @@ export const Home: FC = () => {
           >
             訪問組み最適化を実行
           </Button>
+          <div>↑開発中につき, まだ押しても何も起こらないです</div>
         </MantineProvider>
       </Group>
     </div>
