@@ -130,6 +130,11 @@ th {
   color: white;
 }
 
+td {
+  min-width: 96px;
+  max-width: 400px;
+}
+
 tr:nth-child(odd) {
   background-color: rgba(128, 0, 0, 0.1);
 }
@@ -138,6 +143,6 @@ tr:nth-child(odd) {
   margin-top: 160px;
 }
 
-.bottom {
-  margin-bottom: 160px;
+h3 {
+  color: maroon;
 }
