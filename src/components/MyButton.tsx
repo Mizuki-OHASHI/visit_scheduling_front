@@ -1,13 +1,13 @@
 import { Group, MantineProvider, Button } from "@mantine/core";
-import { IconMathMin } from "@tabler/icons-react";
 import { FC, ReactElement } from "react";
 
 type Props = {
   values: string;
   onSubmit: () => void;
   icon: ReactElement;
+  disabled: boolean;
 };
-export const MyButton: FC<Props> = ({ values, onSubmit, icon }) => {
+export const MyButton: FC<Props> = ({ values, onSubmit, icon, disabled }) => {
   return (
     <Group position="center" my={16}>
       <MantineProvider
@@ -30,6 +30,7 @@ export const MyButton: FC<Props> = ({ values, onSubmit, icon }) => {
       >
         <Button
           leftIcon={icon}
+          disabled={disabled}
           color="my-maroon"
           size="xl"
           onClick={(event) => {

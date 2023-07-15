@@ -99,9 +99,9 @@ export const CSVReader: FC<Props> = ({ setResult }) => {
   return (
     <CSVReader
       onUploadAccepted={(results: any) => {
-        console.log("---------------------------");
-        console.log(results);
-        console.log("---------------------------");
+        // console.log("---------------------------");
+        // console.log(results);
+        // console.log("---------------------------");
         setResult(results);
         setZoneHover(false);
       }}

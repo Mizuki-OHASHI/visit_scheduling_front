@@ -33,9 +33,9 @@ export const JsonToCSV = () => {
       }
     ]`;
     const results = jsonToCSV(jsonData);
-    console.log("---------------------------");
-    console.log("Results:", results);
-    console.log("---------------------------");
+    // console.log("---------------------------");
+    // console.log("Results:", results);
+    // console.log("---------------------------");
   };
 
   return <button onClick={() => handleJsonToCSV()}>jsonToCSV</button>;

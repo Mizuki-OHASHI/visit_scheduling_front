@@ -133,6 +133,8 @@ th {
 td {
   min-width: 96px;
   max-width: 400px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 tr:nth-child(odd) {
@@ -145,4 +147,9 @@ tr:nth-child(odd) {
 
 h3 {
   color: maroon;
+}
+
+.input {
+  border: none;
+  outline: none;
 }

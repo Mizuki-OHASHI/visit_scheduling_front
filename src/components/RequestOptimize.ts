@@ -1,5 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 
+import type { Candidate } from "@/components/Type";
+
 const url = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 export type Opt = {
@@ -16,7 +18,9 @@ export type Opt = {
 export const RequestOptimize = async (
   chouseisan: Array<Array<any>>,
   memberInfo: Array<Array<any>>,
-  setOpt: Dispatch<SetStateAction<Opt>>
+  candidateInfo: Array<Candidate>,
+  setOpt: Dispatch<SetStateAction<Opt>>,
+  considerGender: boolean
 ): Promise<boolean> => {
   try {
     const res = await fetch(`${url}`, {
@@ -27,6 +31,8 @@ export const RequestOptimize = async (
       body: JSON.stringify({
         chouseisan: chouseisan,
         memberinfo: memberInfo,
+        candidateinfo: candidateInfo,
+        considergender: considerGender,
       }),
     });
 
