@@ -4,6 +4,6 @@ export const ArrayToCSV = (arr: Array<Array<any>>): string => {
       return r.join(",");
     })
     .join("\r\n");
-  console.log(csv);
+  // console.log(csv);
   return csv;
 };
