@@ -135,6 +135,8 @@ td {
   max-width: 400px;
   padding-left: 8px;
   padding-right: 8px;
+  white-space: nowrap;
+  overflow-x: scroll;
 }
 
 tr:nth-child(odd) {
@@ -149,7 +151,14 @@ h3 {
   color: maroon;
 }
 
-.input {
-  border: none;
-  outline: none;
+.table-wrapper {
+  overflow-x: scroll;
+}
+
+.textsum {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding: 32px;
+  border-radius: 16px;
+  background-color: rgba(128, 0, 0, 0.1);
 }

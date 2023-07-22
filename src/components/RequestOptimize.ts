@@ -12,7 +12,9 @@ export type Opt = {
     seniordriver: Array<string>;
   };
   visitschedule?: Array<Array<any>>;
+  textsummary?: string;
   status: string;
+  detail?: string;
 };
 
 export const RequestOptimize = async (
@@ -43,7 +45,16 @@ export const RequestOptimize = async (
       return false;
     }
 
+    if (opt.status == "error") {
+      alert(`
+        エラー
+        ${opt.detail}
+      `);
+      return false;
+    }
+
     alert("訪問組みに成功しました");
+
     setOpt(opt);
     return true;
   } catch (err) {

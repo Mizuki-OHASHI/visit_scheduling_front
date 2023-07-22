@@ -47,12 +47,14 @@ export const Home: FC = () => {
   };
 
   useEffect(() => {
-    const emptyCandidates: Array<Candidate> = [];
-    const len = chouseisan.data ? chouseisan.data[2].length - 2 : 0;
-    for (let i = 0; i < len; i++) {
-      emptyCandidates.push({ group: "", todo: "" });
+    if (candidateInfo.length == 0) {
+      const emptyCandidates: Array<Candidate> = [];
+      const len = chouseisan.data ? chouseisan.data[2].length - 2 : 0;
+      for (let i = 0; i < len; i++) {
+        emptyCandidates.push({ group: "", todo: "" });
+      }
+      setCandidateInfo(emptyCandidates);
     }
-    setCandidateInfo(emptyCandidates);
   }, [chouseisan, memberInfo]);
 
   return (
