@@ -26,13 +26,15 @@ export const PreviewTable: FC<Props> = ({ data }) => {
   };
 
   return (
-    <table>
-      <tbody>
-        {addRowH(data[0])}
-        {data.slice(1).map((r, j) => {
-          return addRowD(r, j);
-        })}
-      </tbody>
-    </table>
+    <div className="table-wrapper">
+      <table>
+        <tbody>
+          {addRowH(data[0])}
+          {data.slice(1).map((r, j) => {
+            return addRowD(r, j);
+          })}
+        </tbody>
+      </table>
+    </div>
   );
 };

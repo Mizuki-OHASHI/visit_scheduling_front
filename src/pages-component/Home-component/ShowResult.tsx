@@ -10,7 +10,7 @@ type Props = {
   opt: Opt;
 };
 export const ShowResult: FC<Props> = ({ opt }) => {
-  const { visitinfo, visitschedule } = opt;
+  const { visitinfo, visitschedule, textsummary } = opt;
   return (
     <>
       <Group position="center" my={32} className="visitInfo">
@@ -42,6 +42,9 @@ export const ShowResult: FC<Props> = ({ opt }) => {
       </Group>
       <Group position="center" my={32}>
         <PreviewTable data={visitschedule ?? [[]]} />
+      </Group>
+      <Group position="center" my={32}>
+        <div className="textsum">{textsummary}</div>
       </Group>
       <div>
         <MyButton
