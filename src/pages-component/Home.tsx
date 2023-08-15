@@ -17,6 +17,7 @@ import { ShowResult } from "@/pages-component/Home-component/ShowResult";
 import { MyButton } from "@/components/MyButton";
 import { Candidate } from "@/components/Type";
 import { SetCandidate } from "@/pages-component/Home-component/SetCandidate";
+import { InformationExample } from "@/pages-component/Home-component/InformationExample";
 
 /* # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # */
 
@@ -88,6 +89,7 @@ export const Home: FC = () => {
         <IconNumber2 size={iconSize} />
         <h3>メンバーの情報をアップロード</h3>
       </div>
+      <InformationExample />
       <br />
       <CSVReader setResult={(c: CSVType) => setMemberInfo(c)} />
       {memberInfo.data ? (
