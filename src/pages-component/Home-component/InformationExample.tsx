@@ -13,15 +13,12 @@ export const InformationExample: FC = () => {
       "0=無免許 1=要補助 2=一人前",
       "任意の文字列",
     ],
-    ["北条政子", "8", "1", "1221/5/19", "0", ""],
-    ["楠木正成", "9", "0", "1338/3/29", "1", "南朝方"],
-    ["西郷隆盛", "10", "0", "1877/9/24", "2", "薩摩藩"],
   ];
 
   return (
     <>
       <Group position="center" mt={16}>
-        <h4>メンバー情報 (CSV ファイル) の形式 (例)</h4>
+        <h4>メンバー情報 (CSV ファイル) の形式</h4>
       </Group>
       <Group position="center" mb={16}>
         <PreviewTable data={data} />
