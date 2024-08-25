@@ -18,6 +18,7 @@ import { MyButton } from "@/components/MyButton";
 import { Candidate } from "@/components/Type";
 import { SetCandidate } from "@/pages-component/Home-component/SetCandidate";
 import { InformationExample } from "@/pages-component/Home-component/InformationExample";
+import { useRouter } from "next/router";
 
 /* # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # */
 
@@ -29,6 +30,7 @@ export const Home: FC = () => {
     status: "not optimized yet",
   });
   const [considerGender, setConsiderGender] = useState(false);
+  const router = useRouter();
 
   const iconSize = 64;
 
@@ -57,6 +59,15 @@ export const Home: FC = () => {
       setCandidateInfo(emptyCandidates);
     }
   }, [chouseisan, memberInfo]);
+
+  useEffect(() => {
+    if (
+      confirm(
+        "本サービスは提供を終了しました。新しいサービス (https://visit-scheduler.vercel.app) に移動しますか？"
+      )
+    )
+      router.push("https://visit-scheduler.vercel.app");
+  }, []);
 
   return (
     <div className="home">
